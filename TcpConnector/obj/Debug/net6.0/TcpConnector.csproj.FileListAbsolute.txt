@@ -1,0 +1,15 @@
+C:\Users\ユーザー\Desktop\Project\TCP\Network\TcpConnector\bin\Debug\net6.0\TcpConnector.exe
+C:\Users\ユーザー\Desktop\Project\TCP\Network\TcpConnector\bin\Debug\net6.0\TcpConnector.deps.json
+C:\Users\ユーザー\Desktop\Project\TCP\Network\TcpConnector\bin\Debug\net6.0\TcpConnector.runtimeconfig.json
+C:\Users\ユーザー\Desktop\Project\TCP\Network\TcpConnector\bin\Debug\net6.0\TcpConnector.dll
+C:\Users\ユーザー\Desktop\Project\TCP\Network\TcpConnector\bin\Debug\net6.0\TcpConnector.pdb
+C:\Users\ユーザー\Desktop\Project\TCP\Network\TcpConnector\obj\Debug\net6.0\TcpConnector.csproj.AssemblyReference.cache
+C:\Users\ユーザー\Desktop\Project\TCP\Network\TcpConnector\obj\Debug\net6.0\TcpConnector.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ユーザー\Desktop\Project\TCP\Network\TcpConnector\obj\Debug\net6.0\TcpConnector.AssemblyInfoInputs.cache
+C:\Users\ユーザー\Desktop\Project\TCP\Network\TcpConnector\obj\Debug\net6.0\TcpConnector.AssemblyInfo.cs
+C:\Users\ユーザー\Desktop\Project\TCP\Network\TcpConnector\obj\Debug\net6.0\TcpConnector.csproj.CoreCompileInputs.cache
+C:\Users\ユーザー\Desktop\Project\TCP\Network\TcpConnector\obj\Debug\net6.0\TcpConnector.dll
+C:\Users\ユーザー\Desktop\Project\TCP\Network\TcpConnector\obj\Debug\net6.0\refint\TcpConnector.dll
+C:\Users\ユーザー\Desktop\Project\TCP\Network\TcpConnector\obj\Debug\net6.0\TcpConnector.pdb
+C:\Users\ユーザー\Desktop\Project\TCP\Network\TcpConnector\obj\Debug\net6.0\TcpConnector.genruntimeconfig.cache
+C:\Users\ユーザー\Desktop\Project\TCP\Network\TcpConnector\obj\Debug\net6.0\ref\TcpConnector.dll

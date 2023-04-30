@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ユーザー\\Desktop\\Project\\TCP\\Network\\TcpServer\\TcpServer.csproj",
-      "projectName": "TcpServer",
-      "projectPath": "C:\\Users\\ユーザー\\Desktop\\Project\\TCP\\Network\\TcpServer\\TcpServer.csproj",
+      "projectUniqueName": "C:\\Users\\ユーザー\\Desktop\\Project\\TCP\\Network\\TcpConnector\\TcpConnector.csproj",
+      "projectName": "TcpConnector",
+      "projectPath": "C:\\Users\\ユーザー\\Desktop\\Project\\TCP\\Network\\TcpConnector\\TcpConnector.csproj",
       "packagesPath": "C:\\Users\\ユーザー\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ユーザー\\Desktop\\Project\\TCP\\Network\\TcpServer\\obj\\",
+      "outputPath": "C:\\Users\\ユーザー\\Desktop\\Project\\TCP\\Network\\TcpConnector\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ユーザー\\AppData\\Roaming\\NuGet\\NuGet.Config",

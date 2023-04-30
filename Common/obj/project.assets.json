@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ユーザー\\Desktop\\Project\\Network\\Common\\Common.csproj",
+      "projectUniqueName": "C:\\Users\\ユーザー\\Desktop\\Project\\TCP\\Network\\Common\\Common.csproj",
       "projectName": "Common",
-      "projectPath": "C:\\Users\\ユーザー\\Desktop\\Project\\Network\\Common\\Common.csproj",
+      "projectPath": "C:\\Users\\ユーザー\\Desktop\\Project\\TCP\\Network\\Common\\Common.csproj",
       "packagesPath": "C:\\Users\\ユーザー\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ユーザー\\Desktop\\Project\\Network\\Common\\obj\\",
+      "outputPath": "C:\\Users\\ユーザー\\Desktop\\Project\\TCP\\Network\\Common\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ユーザー\\AppData\\Roaming\\NuGet\\NuGet.Config",

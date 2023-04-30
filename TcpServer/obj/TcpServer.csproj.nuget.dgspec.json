@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ユーザー\\Desktop\\Project\\Network\\TcpServer\\TcpServer.csproj": {}
+    "C:\\Users\\ユーザー\\Desktop\\Project\\TCP\\Network\\TcpServer\\TcpServer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ユーザー\\Desktop\\Project\\Network\\TcpServer\\TcpServer.csproj": {
+    "C:\\Users\\ユーザー\\Desktop\\Project\\TCP\\Network\\TcpServer\\TcpServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ユーザー\\Desktop\\Project\\Network\\TcpServer\\TcpServer.csproj",
+        "projectUniqueName": "C:\\Users\\ユーザー\\Desktop\\Project\\TCP\\Network\\TcpServer\\TcpServer.csproj",
         "projectName": "TcpServer",
-        "projectPath": "C:\\Users\\ユーザー\\Desktop\\Project\\Network\\TcpServer\\TcpServer.csproj",
+        "projectPath": "C:\\Users\\ユーザー\\Desktop\\Project\\TCP\\Network\\TcpServer\\TcpServer.csproj",
         "packagesPath": "C:\\Users\\ユーザー\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ユーザー\\Desktop\\Project\\Network\\TcpServer\\obj\\",
+        "outputPath": "C:\\Users\\ユーザー\\Desktop\\Project\\TCP\\Network\\TcpServer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ユーザー\\AppData\\Roaming\\NuGet\\NuGet.Config",
