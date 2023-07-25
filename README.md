@@ -1,4 +1,3 @@
-# C_Sharp
-## TcpServerをバックグラウンドで起動
-
-## TcpClientServerをデバッグで起動
+# NetWork
+- TcpServerをバックグラウンドで起動
+- TcpClientServerをデバッグで起動
