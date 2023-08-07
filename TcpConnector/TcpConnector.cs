@@ -10,7 +10,11 @@ namespace TcpConnector
 {
     class TcpConnector
     {
-        private TcpClient client;
+        /// <summary>
+        /// TCPクライアント
+        /// </summary>
+        /// <remarks>電文の送信に利用</remarks>
+        private TcpClient? _client;
 
         /// <summary>
         /// 接続開始
@@ -19,29 +23,33 @@ namespace TcpConnector
         /// <param name="portNum"></param>
         public void ConnectStart(IPAddress ipAddress, int portNum)
         {
+            // コネクションの確立に成功した場合に以降の処理を実施
             if (Connection(ipAddress, portNum))
             {
-                // データを読み書きするインスタンスを取得
-                NetworkStream netStream = client.GetStream();
+                if(_client != null)
+                {
+                    // データを読み書きするインスタンスを取得
+                    NetworkStream netStream = _client.GetStream();
 
-                // サーバーへ送信するデータ
-                string sendData = "Hello, Server!";
-                byte[] sendBytes = Encoding.UTF8.GetBytes(sendData);
-                // このタイミングでサーバへデータを送信処理
-                netStream.Write(sendBytes, 0, sendBytes.Length);
-                Console.WriteLine($"Sent Data: {sendData}");
+                    // サーバーへ送信するデータ
+                    string sendData = "Hello, Server!";
+                    byte[] sendBytes = Encoding.UTF8.GetBytes(sendData);
+                    // このタイミングでサーバへデータを送信処理
+                    netStream.Write(sendBytes, 0, sendBytes.Length);
+                    Console.WriteLine($"Sent Data: {sendData}");
 
-                // 受信するデータのバッファサイズを指定して初期化
-                byte[] receiveBytes = new byte[client.ReceiveBufferSize];
+                    // 受信するデータのバッファサイズを指定して初期化
+                    byte[] receiveBytes = new byte[_client.ReceiveBufferSize];
 
-                // サーバからデータの送信があるまで処理を待機
-                int bytesRead = netStream.Read(receiveBytes, 0, client.ReceiveBufferSize);
-                // 取得したデータを文字列に変換
-                string receivedData = Encoding.UTF8.GetString(receiveBytes, 0, bytesRead);
-                Console.WriteLine($"Received Data: {receivedData}");
+                    // サーバからデータの送信があるまで処理を待機
+                    int bytesRead = netStream.Read(receiveBytes, 0, _client.ReceiveBufferSize);
+                    // 取得したデータを文字列に変換
+                    string receivedData = Encoding.UTF8.GetString(receiveBytes, 0, bytesRead);
+                    Console.WriteLine($"Received Data: {receivedData}");
 
-                // 接続解除
-                Close();
+                    // 接続解除
+                    Close();
+                }
             }
         }
 
@@ -59,8 +67,8 @@ namespace TcpConnector
                 // サーバーとTCP接続確立
                 // サーバーへ接続開始
                 // -------------------------------------------------
-                client = new TcpClient();
-                client.Connect(ipAddress, portNum);
+                _client = new TcpClient();
+                _client.Connect(ipAddress, portNum);
                 Console.WriteLine($"Server is listening on {ipAddress}:{portNum}");
                 result = true;
             }
@@ -78,7 +86,7 @@ namespace TcpConnector
         public void Close()
         {
             // TcpClient をクローズする
-            client.Close();
+            _client.Close();
         }
     }
 }
