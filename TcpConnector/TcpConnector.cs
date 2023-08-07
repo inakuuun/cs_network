@@ -86,7 +86,7 @@ namespace TcpConnector
         public void Close()
         {
             // TcpClient をクローズする
-            _client.Close();
+            _client?.Close();
         }
     }
 }
