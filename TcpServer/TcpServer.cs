@@ -5,13 +5,25 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+//// TODO:ssh接続を行う
+//using System.Security.Cryptography;
+//using Renci.SshNet;
 
 namespace TcpServer
 {
     class TcpServer
     {
-        private TcpListener listener;
-        private TcpClient client;
+        /// <summary>
+        /// TCPリスナー
+        /// </summary>
+        /// <remarks>クライアントからの接続要求を待機時に利用</remarks>
+        private TcpListener? _listener;
+
+        /// <summary>
+        /// TCPクライアント
+        /// </summary>
+        /// <remarks>応答電文を送信するために利用</remarks>
+        private TcpClient? _client;
 
 
         /// <summary>
@@ -21,32 +33,36 @@ namespace TcpServer
         /// <param name="portNum"></param>
         public void ConnectStart(IPAddress ipAddress, int portNum)
         {
+            // コネクションの確立に成功した場合に以降の処理を実施
             if (Connection(ipAddress, portNum))
             {
                 // クライアントからの接続要求待ち
-                client = listener.AcceptTcpClient();
-                Console.WriteLine("A client connected.");
+                _client = _listener?.AcceptTcpClient();
+                if(_client != null)
+                {
+                    Console.WriteLine("A client connected.");
 
-                // データを読み書きするインスタンスを取得
-                NetworkStream netStream = client.GetStream();
-                // 受信するデータのバッファサイズを指定して初期化
-                byte[] receiveBytes = new byte[client.ReceiveBufferSize];
+                    // データを読み書きするインスタンスを取得
+                    NetworkStream netStream = _client.GetStream();
+                    // 受信するデータのバッファサイズを指定して初期化
+                    byte[] receiveBytes = new byte[_client.ReceiveBufferSize];
 
-                // クライアントからデータの送信があるまで処理を待機
-                int bytesRead = netStream.Read(receiveBytes, 0, client.ReceiveBufferSize);
-                // 取得したデータを文字列に変換
-                string receivedData = Encoding.UTF8.GetString(receiveBytes, 0, bytesRead);
-                Console.WriteLine($"Received Data: {receivedData}");
+                    // クライアントからデータの送信があるまで処理を待機
+                    int bytesRead = netStream.Read(receiveBytes, 0, _client.ReceiveBufferSize);
+                    // 取得したデータを文字列に変換
+                    string receivedData = Encoding.UTF8.GetString(receiveBytes, 0, bytesRead);
+                    Console.WriteLine($"Received Data: {receivedData}");
 
-                // クライアントへ送信するデータ
-                string sendData = "Hello, Client!";
-                byte[] sendBytes = Encoding.UTF8.GetBytes(sendData);
-                // このタイミングでクライアントへデータを送信
-                netStream.Write(sendBytes, 0, sendBytes.Length);
-                Console.WriteLine($"Sent Data: {sendData}");
+                    // クライアントへ送信するデータ
+                    string sendData = "Hello, Client!";
+                    byte[] sendBytes = Encoding.UTF8.GetBytes(sendData);
+                    // このタイミングでクライアントへデータを送信
+                    netStream.Write(sendBytes, 0, sendBytes.Length);
+                    Console.WriteLine($"Sent Data: {sendData}");
 
-                // 接続解除
-                Close();
+                    // 接続解除
+                    Close();
+                }
             }
         }
 
@@ -64,8 +80,8 @@ namespace TcpServer
                 // クライアントとTCP接続確立
                 // 指定のポート番号で接続待機
                 // -------------------------------------------------
-                listener = new TcpListener(ipAddress, portNum);
-                listener.Start();
+                _listener = new TcpListener(ipAddress, portNum);
+                _listener.Start();
                 Console.WriteLine($"Server is listening on {ipAddress}:{portNum}");
                 result = true;
             }
@@ -82,8 +98,35 @@ namespace TcpServer
         /// </summary>
         public void Close()
         {
-            client.Close();
-            listener.Stop();
+            _client?.Close();
+            _listener?.Stop();
         }
+
+        //// 公開鍵暗号方式を用いて共通鍵を暗号化し、暗号化した共通鍵を用いて通信を行う
+        //// TODO：https://chat.openai.com/share/84345757-ad02-4685-91d5-a8249c6a02bf => chatgpt
+        //// https://techlive.tokyo/archives/12206 => sshライブラリのインストール
+        //// https://nugetmusthaves.com/tag/SSH => sshのライブラリとして安定
+        //public void HyblidCipher()
+        //{
+        //    string host = "サーバーのIPアドレス";
+        //    string userName = "ユーザー名";
+        //    string password = "パスワード";
+        //    string privateKeyFilePath = "秘密鍵ファイルのパス";
+        //    string remoteDirectory = "リモートディレクトリのパス";
+        //    string encryptedKeyFilePath = remoteDirectory + "/key.bin";
+        //    string keyFilePath = remoteDirectory + "/key.bin";
+
+        //    // 秘密鍵を使用してファイルをサーバーからダウンロード
+        //    using (var client = new SftpClient(host, userName, password))
+        //    {
+        //        client.Connect();
+        //        client.ChangeDirectory(remoteDirectory);
+        //        //client.DownloadFile(privateKeyFilePath, privateKeyFilePath);
+        //        client.Disconnect();
+        //    }
+
+        //    // 共通鍵を暗号化された形でダウンロード
+        //    byte[] encryptedKey = System.IO.File.ReadAllBytes(encryptedKeyFilePath);
+        //}
     }
 }
